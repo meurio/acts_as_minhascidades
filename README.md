@@ -17,6 +17,9 @@ end
 # Now you can use the 'name' method
 user = User.new first_name: "Lionel", last_name: "Messi"
 user.name # "Lionel Messi"
+
+# And the 'avatar_url' as well
+user.avatar_url
 ```
 
 # License
