@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/meurio/acts_as_minhascidades.svg?branch=master)](https://travis-ci.org/meurio/acts_as_minhascidades)
+
 # Install
 
 ```ruby
