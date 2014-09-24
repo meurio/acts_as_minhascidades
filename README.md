@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/meurio/acts_as_minhascidades.svg?branch=master)](https://travis-ci.org/meurio/acts_as_minhascidades)
+[![Code Climate](https://codeclimate.com/github/meurio/acts_as_minhascidades/badges/gpa.svg)](https://codeclimate.com/github/meurio/acts_as_minhascidades)
 
 # Install
 
