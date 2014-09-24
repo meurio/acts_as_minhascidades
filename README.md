@@ -1,6 +1,6 @@
 # Install
 
-```
+```ruby
 gem 'acts_as_minhascidades'
 ```
 
