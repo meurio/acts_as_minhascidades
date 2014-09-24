@@ -7,4 +7,21 @@ RSpec.describe User, :type => :model do
       expect(user.name).to be_eql("Leonel Messi")
     end
   end
+
+  describe "#avatar_url" do
+    context "when the user have an avatar" do
+      it "should be the actual avatar url" do
+        ENV['ACCOUNTS_BUCKET'] = "compartilhaco"
+        user = User.create avatar: "messi.png"
+        expect(user.avatar_url).to be_eql("https://#{ENV['ACCOUNTS_BUCKET']}.s3.amazonaws.com/uploads/user/avatar/#{user.id}/square_#{user.avatar}")
+      end
+    end
+
+    context "when the user don't have an avatar" do
+      it "should be the default avatar url" do
+        user = User.create
+        expect(user.avatar_url).to be_eql(ActsAsMinhascidades.config[:default_avatar_url])
+      end
+    end
+  end
 end
