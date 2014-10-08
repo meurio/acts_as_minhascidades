@@ -30,9 +30,16 @@ RSpec.describe User, :type => :model do
       before { allow(ActsAsMinhascidades).to receive(:api_mode?).and_return(true) }
 
       it "should not create user on database" do
+        allow(ActsAsMinhascidades::UserAPI).to receive(:create)
         expect {
           User.create first_name: "Leonel", last_name: "Messi"
         }.to_not change{User.count}
+      end
+
+      it "should call ActsAsMinhascidades::UserAPI.create" do
+        params = {first_name: "Leonel", last_name: "Messi"}
+        expect(ActsAsMinhascidades::UserAPI).to receive(:create).with(params)
+        User.create params
       end
     end
 
