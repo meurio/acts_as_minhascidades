@@ -24,4 +24,26 @@ RSpec.describe User, :type => :model do
       end
     end
   end
+
+  describe ".create" do
+    context "when it is on the API mode" do
+      before { allow(ActsAsMinhascidades).to receive(:api_mode?).and_return(true) }
+
+      it "should not create user on database" do
+        expect {
+          User.create first_name: "Leonel", last_name: "Messi"
+        }.to_not change{User.count}
+      end
+    end
+
+    context "when it is not on the API mode" do
+      before { allow(ActsAsMinhascidades).to receive(:api_mode?).and_return(false) }
+
+      it "should create user on database" do
+        expect {
+          User.create first_name: "Leonel", last_name: "Messi"
+        }.to change{User.count}.by(1)
+      end
+    end
+  end
 end

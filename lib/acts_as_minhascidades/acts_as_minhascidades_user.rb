@@ -1,6 +1,13 @@
 module ActsAsMinhascidades
   def self.config
-    { default_avatar_url: "http://i.imgur.com/7XqAySb.png" }
+    {
+      default_avatar_url: "http://i.imgur.com/7XqAySb.png",
+      api_mode: false
+    }
+  end
+
+  def self.api_mode?
+    self.config[:api_mode]
   end
 
   module ActsAsMinhascidadesUser
@@ -8,6 +15,14 @@ module ActsAsMinhascidades
 
     module ClassMethods
       def acts_as_minhascidades_user
+        def self.create args={}
+          if ActsAsMinhascidades.api_mode?
+            ActsAsMinhascidades::UserAPI.create args
+          else
+            super args
+          end
+        end
+
         include ActsAsMinhascidades::ActsAsMinhascidadesUser::LocalInstanceMethods
       end
     end
