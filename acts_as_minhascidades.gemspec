@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'rails', '~> 4.1', '>= 4.1.5'
   s.add_runtime_dependency 'activeresource', '~> 4.0', '>= 4.0.0'
 
-  s.add_development_dependency 'sqlite3', '~> 0'
-  s.add_development_dependency 'rspec-rails', '~> 0'
-  s.add_development_dependency 'coveralls', '~> 0'
+  s.add_development_dependency 'sqlite3', '~> 1.3', '>= 1.3.9'
+  s.add_development_dependency 'rspec-rails', '~> 3.1', '>= 3.1.0'
+  s.add_development_dependency 'coveralls', '~> 0.7', '>= 0.7.1'
 end
