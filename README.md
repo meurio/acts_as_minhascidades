@@ -12,9 +12,8 @@ gem 'acts_as_our_cities'
 
 ## Configuration
 
-Create an initializer ```config/initializers/acts_as_our_cities.rb``` and paste the following configuration block:
-
 ```ruby
+# config/initializers/acts_as_our_cities.rb
 ActsAsOurCities.config do |config|
   config.default_avatar_url = "http://i.imgur.com/Yg5ngED.jpg"
   config.api_mode = true
