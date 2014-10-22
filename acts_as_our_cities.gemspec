@@ -1,17 +1,17 @@
 $:.push File.expand_path("../lib", __FILE__)
 
 # Maintain your gem's version:
-require "acts_as_minhascidades/version"
+require "acts_as_our_cities/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "acts_as_minhascidades"
-  s.version     = ActsAsMinhascidades::VERSION
+  s.name        = "acts_as_our_cities"
+  s.version     = ActsAsOurCities::VERSION
   s.authors     = ["Nícolas Iensen"]
-  s.email       = ["nicolas@minhascidades.org.br"]
-  s.homepage    = "https://github.com/meurio/acts_as_minhascidades"
-  s.summary     = "ActsAsMinhascidades is a wrapper for Minhas Cidades models"
-  s.description = "DRYing Minhas Cidades projects by wrapping common behaviours"
+  s.email       = ["nicolas@nossascidades.org"]
+  s.homepage    = "https://github.com/meurio/acts_as_our_cities"
+  s.summary     = "ActsAsOurCities is a wrapper for Our Cities models"
+  s.description = "DRYing Our Cities projects by wrapping common behaviours"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.rdoc"]

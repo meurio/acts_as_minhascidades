@@ -1,4 +1,4 @@
-module ActsAsMinhascidades
+module ActsAsOurCities
   mattr_accessor :default_avatar_url, :api_mode, :api_site, :api_token
 
   def self.config(&block)
