@@ -20,31 +20,31 @@ RSpec.describe User, :type => :model do
     context "when the user don't have an avatar" do
       it "should be the default avatar url" do
         user = User.create
-        expect(user.avatar_url).to be_eql(ActsAsMinhascidades.config[:default_avatar_url])
+        expect(user.avatar_url).to be_eql(ActsAsMinhascidades.default_avatar_url)
       end
     end
   end
 
   describe ".create" do
     context "when it is on the API mode" do
-      before { allow(ActsAsMinhascidades).to receive(:api_mode?).and_return(true) }
+      before { allow(ActsAsMinhascidades).to receive(:api_mode).and_return(true) }
 
       it "should not create user on database" do
-        allow(ActsAsMinhascidades::UserAPI).to receive(:create)
+        allow(ActsAsMinhascidades::API::User).to receive(:create)
         expect {
           User.create first_name: "Leonel", last_name: "Messi"
         }.to_not change{User.count}
       end
 
-      it "should call ActsAsMinhascidades::UserAPI.create" do
+      it "should call ActsAsMinhascidades::API::User.create" do
         params = {first_name: "Leonel", last_name: "Messi"}
-        expect(ActsAsMinhascidades::UserAPI).to receive(:create).with(params)
+        expect(ActsAsMinhascidades::API::User).to receive(:create).with(params)
         User.create params
       end
     end
 
     context "when it is not on the API mode" do
-      before { allow(ActsAsMinhascidades).to receive(:api_mode?).and_return(false) }
+      before { allow(ActsAsMinhascidades).to receive(:api_mode).and_return(false) }
 
       it "should create user on database" do
         expect {

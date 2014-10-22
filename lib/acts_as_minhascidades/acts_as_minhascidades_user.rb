@@ -1,23 +1,12 @@
 module ActsAsMinhascidades
-  def self.config
-    {
-      default_avatar_url: "http://i.imgur.com/7XqAySb.png",
-      api_mode: false
-    }
-  end
-
-  def self.api_mode?
-    self.config[:api_mode]
-  end
-
   module ActsAsMinhascidadesUser
     extend ActiveSupport::Concern
 
     module ClassMethods
       def acts_as_minhascidades_user
         def self.create args={}
-          if ActsAsMinhascidades.api_mode?
-            ActsAsMinhascidades::UserAPI.create args
+          if ActsAsMinhascidades.api_mode
+            ActsAsMinhascidades::API::User.create args
           else
             super args
           end
@@ -36,7 +25,7 @@ module ActsAsMinhascidades
         if self.avatar
           "https://#{ENV['ACCOUNTS_BUCKET']}.s3.amazonaws.com/uploads/user/avatar/#{self.id}/square_#{self.avatar}"
         else
-          ActsAsMinhascidades.config[:default_avatar_url]
+          ActsAsMinhascidades.default_avatar_url
         end
       end
     end

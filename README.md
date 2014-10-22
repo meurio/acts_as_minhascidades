@@ -10,6 +10,19 @@ gem 'acts_as_minhascidades'
 
 # Using
 
+## Configuration
+
+Create an initializer ```config/initializers/acts_as_minhascidades.rb``` and paste the following configuration block:
+
+```ruby
+ActsAsMinhascidades.config do |config|
+  config.default_avatar_url = "http://i.imgur.com/Yg5ngED.jpg"
+  config.api_mode = true
+  config.api_site = "http://myaccounts.herokuapp.com/api/v1"
+  config.api_token = "my-accounts-secret-token"
+end
+```
+
 ## ActsAsMinhascidadesUser
 
 ```ruby
